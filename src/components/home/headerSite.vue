@@ -3,7 +3,7 @@
 <section class="header_box">
 
     <!-- logo -->
-    <homelogo></homelogo>
+    <homeLogo></homelogo>
 
     <!-- list -->
     <navbarList></navbarList>
@@ -13,8 +13,8 @@
 </template>
 
 <script setup>
-import homelogo from './header_components/homelogo.vue'
-import navbarList from './header_components/navbarlist.vue'
+import homeLogo from './header_components/home_logo.vue'
+import navbarList from './header_components/navbar_list.vue'
 
 </script>
 

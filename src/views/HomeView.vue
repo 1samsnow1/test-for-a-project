@@ -1,9 +1,9 @@
 <template>
-  <headersite></headersite>
+  <headerSite></headerSite>
 </template>
 
 <script setup>
-import headersite from '../components/home/header.vue'
+import headerSite from '../components/home/headerSite.vue'
 </script>
 
 <style>
