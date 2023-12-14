@@ -1,5 +1,7 @@
 <template>
-    
+    <section class="events">
+       
+    </section>
 </template>
 
 <script setup>

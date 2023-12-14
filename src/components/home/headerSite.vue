@@ -19,8 +19,8 @@ import navbarList from './header_components/navbar_list.vue'
 </script>
 
 <style>
+
 *{
-    direction: rtl;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
