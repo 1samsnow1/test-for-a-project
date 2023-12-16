@@ -3,7 +3,10 @@
   <headerSite></headerSite>
 
   <!-- banner -->
-  <banner></banner>
+    <div class="banner">
+      <banner></banner>
+    </div>
+    
 </template>
 
 <script setup>
@@ -16,7 +19,12 @@ import banner from '../components/home/banner.vue'
   direction: rtl;
   font-family: sans-serif;
   padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  margin: 0; 
+ box-sizing: border-box;
 }
+.banner {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
 </style>
