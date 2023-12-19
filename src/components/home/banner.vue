@@ -126,18 +126,19 @@ export default {
 </script>
 
 <style>
+.swiper {
+  background-color: transparent;
+}
 a{
   text-decoration: none;
 }
 /* swiper related styles  */
-.swiper-scrollbar-drag , .swiper-pagination {
+.swiper-scrollbar-drag , .swiper-pagination , .swiper-scrollbar {
   display: none;
 }
 
 /* events slide styles  */
 .event{
-  width: 100%;
-  height: 90%;
 }
 .events_link {
   text-decoration: none;
@@ -159,16 +160,13 @@ a{
   width: 500px;
   height: 220px;
 }
-.left_event_info {
-
-}
 
 /* right slide event styles */
 .right_side_event {
   position: relative;
 }
 .right_event_image , .right_side_event {
-  width: 100%;
+  width: 670px;
   height: 460px;
 }
 .right_event_image , .left_event_image {
