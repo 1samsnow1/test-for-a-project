@@ -2,17 +2,24 @@
 
 <section class="header_box">
 
-    <!-- logo -->
-    <homeLogo></homelogo>
+   <div class="header_box_content">
+     <!-- logo -->
+        <div class="homeLogo">
+            <homeLogo></homelogo>
+        </div>
 
     <!-- list -->
-    <navbarList></navbarList>
+        <div class="navbarList">
+            <navbarList></navbarList>
+        </div>
+   </div>
 
 </section>
 
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router'
 import homeLogo from './header_components/home_logo.vue'
 import navbarList from './header_components/navbar_list.vue'
 
@@ -24,19 +31,36 @@ import navbarList from './header_components/navbar_list.vue'
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 /* header styles */
-.header_box , .header_navbar{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    align-items: center;
-}
 .header_box {
-    background-color: rgb(21, 21, 244);
+    background-color: #095195;
     box-shadow: 0 4px 10px gray;
 }
+.header_box_content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* gap: 20px; */
+    align-items: center;
+}
 
+.homeLogo {
+    flex:1;
+}
+.navbarList {
+    flex: 2;
+}
 
+@media screen and (max-width:1097px){
+    .header_box_content {
+        gap: 10px;
+    }
+    .navbarList {
+        flex: 3;
+    }
+}
 </style>
