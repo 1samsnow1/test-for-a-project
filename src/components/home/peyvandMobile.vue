@@ -196,9 +196,6 @@
 </script>
 
 <style>
-.swiper {
-    width: 370px;
-}
 .peyvand_mobile_article {
     width: 180px;
     height: 150px;

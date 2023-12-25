@@ -124,9 +124,9 @@ export default {
     };
 
     const calculateSlidesPerView = () => {
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 900) {
         return 1;
-      } else if (window.innerWidth < 900) {
+      } else if (window.innerWidth < 1120) {
         return 2;
       } else {
         return 3;

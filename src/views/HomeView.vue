@@ -17,8 +17,8 @@
     </div>
     <!-- peyvand ha -->
     <div class="peyvands contentGap">
-      <!-- <peyvandMobile v-if="deviceScreen<1120"></peyvandMobile> -->
-      <peyvands></peyvands>
+      <peyvandMobile v-if="deviceScreen<1120"></peyvandMobile>
+      <peyvands v-else></peyvands>
     </div>
     <!-- amoozesh title -->
     <div class="amoozesh_title contentGap">
@@ -40,10 +40,10 @@ import banner from '../components/home/banner.vue'
 import specialNews from '../components/home/specialnews.vue'
 import news from '../components/home/news_box.vue'
 import peyvands from '../components/home/peyvands.vue'
-// import peyvandMobile from '../components/home/peyvandMobile.vue'
+import peyvandMobile from '../components/home/peyvandMobile.vue'
 import amoozeshTitle from '../components/home/amoozeshTitle.vue'
 import amoozeshZaban from '../components/home/amoozeshZaban_box.vue'
-// import amoozeshZabanMobile from '../components/home/amoozeshZabanMobile.vue'
+import amoozeshZabanMobile from '../components/home/amoozeshZabanMobile.vue'
 
 let deviceScreen = screen.width;
 </script>
