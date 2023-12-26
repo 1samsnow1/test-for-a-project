@@ -1,7 +1,7 @@
 <template>
     <nav class="header_navbar">
         <li class="header_list" v-for="listItem in navbarList" key="listItem">
-            <router-link to="/" class="link">{{ listItem.listName }}</router-link>
+            <router-link to="/education" class="link">{{ listItem.listName }}</router-link>
         </li>
     </nav>
 </template>
