@@ -159,10 +159,13 @@ import { RouterLink } from 'vue-router';
 
 <style>
 .peyandBox {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 .peyvand_article {
     width: 180px;
@@ -195,5 +198,10 @@ import { RouterLink } from 'vue-router';
     position: absolute;
     bottom: -50px;
     right: -50px;
+}
+
+@media screen and (max-width:1134px) {
+    .peyandBox {
+    }
 }
 </style>

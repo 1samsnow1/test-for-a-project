@@ -1,13 +1,14 @@
 <template>
     <swiper
       :modules="modules"
-      :slides-per-view="1"
+      :slides-per-view="4"
       :space-between="50"
       navigation
       @swiper="onSwiper"
       @slideChange="onSlideChange"
+      ref="mySwiper"
     >
-      <swiper-slide v-for="i in 2" key="i">
+      <swiper-slide v-for="i in 5" key="i">
 
         <article class="peyvand_mobile_article">
             <!-- top left svg -->
@@ -88,7 +89,7 @@
                 </span>
             </figure>
             <!-- peyvand_content -->
-            <router-link to="/" class="peyvandMobile_link">پیوند</router-link>
+            <router-link to="/" class="peyvand_mobile_link">پیوند</router-link>
             <span style="color: #9A9A9A;font-size: 9px;">محتوای سازمان های مختلف</span>
             <!-- bottom right svg -->
             <span class="bottom_mobile_right_svg">
@@ -166,6 +167,7 @@
 
 <script>
     import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+    import { ref, onMounted, onBeforeUnmount } from 'vue';
     import { RouterLink } from 'vue-router';
     import { Swiper, SwiperSlide } from 'swiper/vue';
     import 'swiper/css';
@@ -180,19 +182,69 @@
         SwiperSlide,
       },
       setup() {
-        const onSwiper = (swiper) => {
-          console.log(swiper);
-        };
-        const onSlideChange = () => {
-          console.log('slide change');
-        };
-        return {
-          onSwiper,
-          onSlideChange,
-          modules: [Navigation, Pagination, Scrollbar, A11y],
-        };
-      },
+    const slidesPerView = ref(3);
+    let swiperInstance;
+
+    const onSwiper = (swiper) => {
+      swiperInstance = swiper;
     };
+
+    const onSlideChange = () => {
+      console.log('slide change');
+    };
+
+    const handleResize = () => {
+      slidesPerView.value = calculateSlidesPerView();
+      onSwiperUpdate();
+    };
+
+    const calculateSlidesPerView = () => {
+      if (window.innerWidth < 650) {
+        return 1;
+      } else if (window.innerWidth < 950) {
+        return 3;
+      } else {
+        return 4;
+      }
+    };
+
+    const onSwiperUpdate = () => {
+      if (swiperInstance) {
+        swiperInstance.params.slidesPerView = slidesPerView.value;
+        swiperInstance.update();
+      }
+    };
+
+    const goPrev = () => {
+      if (swiperInstance) {
+        swiperInstance.slidePrev();
+      }
+    };
+
+    const goNext = () => {
+      if (swiperInstance) {
+        swiperInstance.slideNext();
+      }
+    };
+
+    onMounted(() => {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', handleResize);
+    });
+
+    return {
+      slidesPerView,
+      onSwiper,
+      onSlideChange,
+      goPrev,
+      goNext,
+    };
+  },
+};
 </script>
 
 <style>
@@ -214,6 +266,7 @@
     transform: translateY(5px);
 }
 .peyvand_mobile_link {
+    text-decoration: none;
     color: #095195;
     font-size: 15px;
     text-decoration: none;

@@ -1,32 +1,30 @@
 <template>
-    <swiper
-      :slides-per-view="1"
-      :space-between="50"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
-    >
-      <swiper-slide v-for="i in 2" key="i">
-        <article class="lastNews_mobile_article">
 
-          <figure class="lastNews_image_figure">
-            <img src="@/assets/testy_images/lastNewsMobileImage.png" alt="lastNewsMobilePng">
-          </figure>
+    <section class="educationBanner flexLayout">
 
-          <h3 class="lastNews_mobile_title">
-            با هم برای آرمانِ امام ، نشست هم اندیشی پیرامون وحدت حوزه و دانشگاه
-          </h3>
+        <div class="educationBanner_content flexLayout">
+            <!-- this is for phone size -->
+            <span class="unimportantContent">
+                <span class="circle">
 
-          <p class="lastNews_mobile_text">
-            شاخه دانشجویی بسیج مدرسه علمیه معصومیه(س) برگزار می کند: حلقه سوم با هم برای آرمانِ امام نشست هم اندیشی پیرامون "وحدت حوزه و دانشگاه" با حضور مسولین تشکل های دانشجویی استان قم و طلاب مدرسه علمیه معصومیه(س) ...
-          </p>
+                </span>
 
-          <div class="latest_news_buttomInfo">
+                <span>این متن فاقد اهمیت است و جهت پر کردن فضای بالای عنوان است</span>
+            </span>
+            <!-- educationBanner title -->
+            <h2 class="educationBanner_title">
+                با هم برای آرمانِ امام ، نشست هم اندیشی پیرامون وحدت حوزه و دانشگاه
+            </h2>
+            <!-- educationBanner text -->
+            <p class="educationBanner_text">
+                ایشان شرط دوم رقابت سالم در انتخابات را، حضور همراه با بصیرت و با فکرِ مردم و انتخاب افراد صالح دانستند و افزودند: باید افرادی را برگزید که بعد اشور را به دشمن نمی فروشند، مصالح ملی را به دلیل رودربایستی زیر پا نمی گذارند.
+            </p>
+            <!-- bottom svgs and dates -->
+                <div class="educationBanner_bottom_text flexLayout">
 
-            <div class="latest_news_buttom_right_info">
-
-                <div class="infoStyle">
-                    <span>
-                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bottom_info flexLayout">
+                        <span>
+<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5.88276 3.83902C5.63188 3.83902 5.42383 3.63097 5.42383 3.38009V1.54438C5.42383 1.2935 5.63188 1.08545 5.88276 1.08545C6.13364 1.08545 6.34169 1.2935 6.34169 1.54438V3.38009C6.34169 3.63097 6.13364 3.83902 5.88276 3.83902Z" fill="#095195"/>
 <path d="M10.7778 3.83902C10.5269 3.83902 10.3188 3.63097 10.3188 3.38009V1.54438C10.3188 1.2935 10.5269 1.08545 10.7778 1.08545C11.0287 1.08545 11.2367 1.2935 11.2367 1.54438V3.38009C11.2367 3.63097 11.0287 3.83902 10.7778 3.83902Z" fill="#095195"/>
 <path d="M6.18856 9.19405C6.10902 9.19405 6.02947 9.1757 5.95604 9.1451C5.87649 9.11451 5.8153 9.07166 5.75411 9.01659C5.64397 8.90033 5.57666 8.74736 5.57666 8.58214C5.57666 8.5026 5.59502 8.42304 5.62561 8.34962C5.65621 8.27619 5.69904 8.20889 5.75411 8.1477C5.8153 8.09262 5.87649 8.04978 5.95604 8.01918C6.17633 7.9274 6.45168 7.97636 6.62302 8.1477C6.73316 8.26396 6.80047 8.42305 6.80047 8.58214C6.80047 8.61886 6.79435 8.6617 6.78823 8.70453C6.78211 8.74125 6.76987 8.77796 6.75152 8.81467C6.73928 8.85138 6.72092 8.88809 6.69645 8.92481C6.67809 8.9554 6.64749 8.98599 6.62302 9.01659C6.50675 9.12673 6.34766 9.19405 6.18856 9.19405Z" fill="#095195"/>
@@ -39,119 +37,152 @@
 <path d="M10.7779 14.2415H5.88271C3.64926 14.2415 2.36426 12.9565 2.36426 10.7231V5.52187C2.36426 3.28842 3.64926 2.00342 5.88271 2.00342H10.7779C13.0114 2.00342 14.2964 3.28842 14.2964 5.52187V10.7231C14.2964 12.9565 13.0114 14.2415 10.7779 14.2415ZM5.88271 2.92128C4.13266 2.92128 3.28211 3.77182 3.28211 5.52187V10.7231C3.28211 12.4731 4.13266 13.3237 5.88271 13.3237H10.7779C12.528 13.3237 13.3785 12.4731 13.3785 10.7231V5.52187C13.3785 3.77182 12.528 2.92128 10.7779 2.92128H5.88271Z" fill="#095195"/>
 </svg>
 
-                    </span>
+                        </span>
 
-                    <span> 12شهریور1401</span>
-                </div>
+                        <span> 12شهریور1401</span>
+                    </div>
 
-                <div class="infoStyle">
-                    <span>
-                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bottom_info flexLayout">
+                        <span>
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.21 8.12285H9.17843C7.65479 8.12285 6.88379 7.26006 6.88379 5.55285V3.79668C6.88379 3.17254 6.95722 2.27916 7.60584 1.78963C8.15043 1.38578 8.93367 1.35518 10.0902 1.69173C11.6077 2.1323 12.8743 3.39894 13.3149 4.91647C13.6515 6.06685 13.6209 6.8562 13.217 7.39468C12.7275 8.04942 11.8341 8.12285 11.21 8.12285ZM8.73786 2.37706C8.48698 2.37706 8.29117 2.42601 8.16267 2.52392C7.92403 2.70137 7.80777 3.11747 7.80777 3.79668V5.55897C7.80777 6.92963 8.334 7.21111 9.18455 7.21111H11.2161C11.8892 7.21111 12.3053 7.09485 12.4888 6.8562C12.703 6.57473 12.6846 6.01178 12.446 5.1857C12.0911 3.98025 11.0509 2.93389 9.84541 2.58511C9.3926 2.44437 9.02546 2.37706 8.73786 2.37706Z" fill="#095195"/>
 <path d="M6.77378 14.2422C6.44947 14.2422 6.11904 14.2178 5.78861 14.1627C3.28592 13.7588 1.24828 11.7273 0.844423 9.22461C0.324304 6.00599 2.39866 2.97094 5.57445 2.32233C5.82533 2.27337 6.06397 2.43247 6.11904 2.67723C6.16799 2.92811 6.0089 3.16675 5.76414 3.22183C3.07788 3.77254 1.31559 6.34254 1.76228 9.07775C2.10495 11.1949 3.8244 12.9144 5.94159 13.2571C8.68904 13.6976 11.2529 11.9292 11.7975 9.23073C11.8465 8.97985 12.0912 8.82075 12.336 8.86971C12.5869 8.91866 12.746 9.16342 12.697 9.40818C12.1157 12.2658 9.61914 14.2422 6.77378 14.2422Z" fill="#095195"/>
 </svg>
 
-                    </span>
+                        </span>
 
-                    <span>بازدید5812</span>
+                        <span>بازدید5812</span>
+                    </div>
+
+                    <div class="bottom_info flexLayout">
+                        <span>
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.12795 7.72824L5.18751 7.72826L5.31949 7.72862C6.44046 7.73461 9.06645 7.83651 9.06645 9.56874C9.06645 11.1748 6.90975 11.3894 5.23215 11.3975L4.93642 11.3974C3.81545 11.3914 1.18945 11.2895 1.18945 9.55774C1.18945 7.91774 3.43695 7.72824 5.12795 7.72824ZM5.12795 8.47824C3.01245 8.47824 1.93945 8.84174 1.93945 9.55774C1.93945 10.2807 3.01245 10.6477 5.12795 10.6477C7.24345 10.6477 8.31645 10.2842 8.31645 9.56874C8.31645 8.84474 7.24345 8.47824 5.12795 8.47824ZM5.12795 1.50024C6.59445 1.50024 7.78695 2.69324 7.78695 4.15924C7.78695 5.62524 6.59445 6.81824 5.12795 6.81824H5.11245C4.40295 6.81574 3.73795 6.53724 3.23945 6.03524C2.74045 5.53274 2.46695 4.86574 2.46944 4.15774C2.46944 2.69324 3.66195 1.50024 5.12795 1.50024ZM5.12795 2.25024C4.07595 2.25024 3.21944 3.10674 3.21944 4.15924C3.21745 4.66874 3.41345 5.14624 3.77095 5.50674C4.12895 5.86674 4.60595 6.06624 5.11395 6.06824L5.12795 6.43874V6.06824C6.18045 6.06824 7.03695 5.21174 7.03695 4.15924C7.03695 3.10674 6.18045 2.25024 5.12795 2.25024Z" fill="#095195"/>
+</svg>
+
+                        </span>
+
+                        <span>علیرضالو</span>
+                    </div>
+
                 </div>
 
-            </div>
+        </div>
 
-            <router-link to="/" class="latest_news_link">
-                <span>اطلاعات بیشتر</span>
-                <span class="latest_news_link_image">
-                  <img src="@/assets/testy_images/newsLinkPointer.png" alt="linkImage">
-                </span>
-            </router-link>
-          </div>
-        </article>
-      </swiper-slide>
-    </swiper>
-  </template>
-  <script>
-    // Import Swiper Vue.js components
-    import { Swiper, SwiperSlide } from 'swiper/vue';
-    import { RouterLink } from 'vue-router';
-  
-    // Import Swiper styles
-    import 'swiper/css';
-  
-    export default {
-      components: {
-        Swiper,
-        SwiperSlide,
-      },
-      setup() {
-        const onSwiper = (swiper) => {
-          console.log(swiper);
-        };
-        const onSlideChange = () => {
-          console.log('slide change');
-        };
-        return {
-          onSwiper,
-          onSlideChange,
-        };
-      },
-    };
+        <figure class="educationBanner_image">
+            <img src="@/assets/testy_images/educationBanner_pic.jpg" alt="educationBanner_pic">
+        </figure>
+
+    </section>
+</template>
+
+<script setup>
 </script>
 
 <style scoped>
-.lastNews_mobile_article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+/* unimportant content for mopile styles */
+.unimportantContent {
+    display: none;
 }
-.lastNews_image_figure , .lastNews_image_figure img{
-  width: 100%;
-  max-height: 166px;
-  border-radius: 10px;
+.circle {
+    width: 16px;
+    height: 16px;
+    background-color: #8DD4DA;
+    border-radius: 100%;
 }
-.lastNews_mobile_title {
-  font-size: 13px;
-  color: #095195;
-}
-.lastNews_mobile_text {
-  font-size: 10px;
-  color: #555555;
-  text-align: justify;
-}
-.latest_news_buttomInfo{
-    width: 100%;
+/* rest of the styles */
+.flexLayout {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.latest_news_link {
-    width: 96px;
-    height: 26px;
-    text-decoration: none;
-    color: #12122F;
-    border: 1px solid #095195;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 9px;
+    justify-content: space-between;
+    gap: 25px;
 }
-.latest_news_link_image {
-    transform: translate(-6px,3px);
+.educationBanner {
+    width: 100%;
+    background-color: #ffff;
+    border-radius: 14px;
+    padding: 1.5rem;
+}
+.educationBanner_image , .educationBanner_image img{
+    border-radius: 8px;
+    order: 2;
+}
+.educationBanner_content {
+    flex-direction: column;
+    order: 1;
+}
+.educationBanner_title {
+    font-size: 24px;
+    line-height: 37.57px;
+    color: #095195;
+    text-align: right;
+}
+.educationBanner_text {
+    background-color: #F0F0F0;
+    text-align: justify;
+    font-size: 13px;
+    line-height: 29px;
+    color: #000000;
+    padding: 10px;
+    border-radius: 9px;
+    margin-right: 5px;
+}
+.educationBanner_bottom_text {
+    width: 100%;
+    justify-content: flex-start;
+}
+.bottom_info {
+    font-size: 13.81px;
+    color: #757575;
+    gap: 5px;
 }
 
-/* bottom right text styles */
-.latest_news_buttom_right_info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    color: #757575;
-    font-size: 9px;
+
+
+
+@media screen and (max-width:1152px){
+    .flexLayout {
+        gap: 20px;
+    }
 }
-.infoStyle {
-    display: flex;
-    align-items: center;
+
+@media screen and (max-width:977px) {
+    .educationBanner_content {
+        /* gap: 10px; */
+    }
+    .educationBanner_title {
+        font-size: 20px;
+        text-align: right;
+    }
+    .bottom_info {
+        font-size: 11px;
+        gap: 2px;
+    }
+}
+@media screen and (max-width:952) {
+    .flexLayout {
+        gap: 10px;
+    }
+}
+@media screen and (max-width:862px) {
+    .educationBanner {
+        flex-direction: column;
+        /* width: 520px; */
+    }
+    .educationBanner_content {
+        width: 477px;
+        order: 3;
+    }
+    .bottom_info {
+        font-size: 9px;
+    }
+}
+@media screen and (max-width:700px) {
+    .unimportantContent {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transform: translateX(16px);
+    }
 }
 </style>

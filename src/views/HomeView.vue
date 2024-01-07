@@ -1,6 +1,6 @@
 <template>
 
-  <main>
+  <section class="homeView">
     <!-- banner -->
     <div class="banner contentGap">
       <banner></banner>
@@ -17,8 +17,15 @@
     </div>
     <!-- peyvand ha -->
     <div class="peyvands contentGap">
-      <peyvandMobile v-if="deviceScreen<1120"></peyvandMobile>
-      <peyvands v-else></peyvands>
+
+      <div class="mobilePeyvand">
+        <peyvandMobile></peyvandMobile>
+      </div>
+
+      <div class="defualtPeyvand">
+        <peyvands></peyvands>
+      </div>
+
     </div>
     <!-- amoozesh title -->
     <div class="amoozesh_title contentGap">
@@ -26,16 +33,20 @@
     </div>
     <!-- amoozesh zaban cards -->
     <div class="amoozeshZaban contentGap">
-        <amoozeshZabanMobile v-if="deviceScreen<1120"></amoozeshZabanMobile>
-        <amoozeshZaban v-else></amoozeshZaban>
+        <div class="mobile_amoozesh_zaban">
+          <amoozeshZabanMobile ></amoozeshZabanMobile>
+        </div>
+       
+        <div class="defualt_amoozesh_zaban">
+          <amoozeshZaban></amoozeshZaban>
+        </div>
     </div>
 
-  </main>
+  </section>
     
 </template>
 
 <script setup>
-import headerSite from '../components/home/headerSite.vue'
 import banner from '../components/home/banner.vue'
 import specialNews from '../components/home/specialnews.vue'
 import news from '../components/home/news_box.vue'
@@ -50,18 +61,6 @@ let deviceScreen = screen.width;
 
 <style>
 @import '../assets/global.css';
-main {
-  width: 85%;
-  margin: 0 auto;
-}
-
-*{
-  direction: rtl;
-  font-family: yekan-bakh-medium;
-  padding: 0;
-  margin: 0; 
- box-sizing: border-box;
-}
 .contentGap{
   margin: 0 auto;
   margin-top: 100px;
@@ -73,4 +72,41 @@ main {
   margin-bottom: 100px;
 }
 
+.mobile_amoozesh_zaban{
+  display: none;
+}
+
+.mobilePeyvand {
+  display: none;
+}
+.bannerImage {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.bannerImage_img {
+  width: 100%;
+}
+.text {
+  width: 100%;
+  text-align: justify;
+  position: absolute;
+  top: 0;
+}
+@media screen and (max-width:1226px) {
+  .mobilePeyvand {
+    display: block;
+  }
+  .defualtPeyvand {
+    display: none;
+  }
+}
+@media screen and (max-width:750px) {
+  .mobile_amoozesh_zaban {
+    display: block;
+  }
+  .defualt_amoozesh_zaban {
+    display: none;
+  }
+}
 </style>

@@ -7,22 +7,22 @@
                 <img class="last_news_svg" src="@/assets/svgs/Vector_17.png" alt="akhabr_svg">
                 <h2 class="last_news_title">اخرین اخبار</h2>
             </div>
-            <router-link to="/" class="news_left_title_link"> همه اخبار...</router-link>
+            <router-link to="/educationList" class="news_left_title_link"> همه اخبار...</router-link>
 
         </div>
 
         <!-- cards -->
-        <article class="latest_news_article" v-for="item in test_items" key="item">
+        <article class="latest_news_article" v-for="item in test_items.item_list" key="item">
             <!-- article image -->
             <figure>
-                <img style="width: 100%;height: 100%;" src="@/assets/testy_images/image_6.png" alt="article_image">
+                <img style="width: 100%;height: 200px;" src="@/assets/testy_images/image_6.png" alt="article_image">
             </figure>
 
             <!-- article description -->
             <div class="latest_news_desc_box">
 
                 <div>
-                    <div>
+                    <div class="usless_desc_display">
                         <span>
                             <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="3.5" cy="3.5" r="3.5" fill="#8DD4DA"/>
@@ -30,12 +30,12 @@
 
                         </span>
 
-                        <span style="color: #8A8A8A;font-size: 10px;">
+                        <span  style="color: #8A8A8A;font-size: 10px;">
                             این متن فاقد اهمیت است و جهت پر کردن فضای بالای عنوان است  
                         </span>
                     </div>
 
-                    <h3 style="color: #095195;font-size: 15px;line-height: 28px;">
+                    <h3 class="lastNews_title">
                         با هم برای آرمانِ امام ، نشست هم اندیشی پیرامون وحدت حوزه و دانشگاه
                     </h3>
                 </div>
@@ -95,12 +95,8 @@
 
                     <router-link to="/" class="latest_news_link">
                         <span>اطلاعات بیشتر</span>
-                        <span>
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.17139 17.3171L3.3543 11.5001L9.17139 5.68297" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M19.646 11.5H3.51725" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+                        <span class="latest_news_link_image">
+                            <img src="@/assets/testy_images/newsLinkPointer.png" alt="linkImage">
                         </span>
                     </router-link>
                 </div>
@@ -111,13 +107,12 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
-let test_items = [
-    {title:"title1", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title2", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title3", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."}
-]
+
+import { RouterLink } from 'vue-router';
+
+let test_items = defineProps(['item_list']);
+
+
 </script>
 
 <style>
@@ -174,18 +169,29 @@ let test_items = [
    padding-bottom: 2rem;
    border-bottom: 1px dashed #DADADA;
 }
+.latest_news_article:last-child {
+    border-bottom: none;
+}
 .latest_news_article img {
     border-radius: 10px;
 }
 /* description styles */
+.usless_desc_display{}
 .latest_news_desc_box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-start;
+    gap: 15px;
+}
+.lastNews_title {
+    color: #095195;
+    font-size: 15px;
+    line-height: 28px;
 }
 .latest_news_desc_box p {
     line-height: 20px;
+    text-align: justify;
 }
 .latest_news_buttomInfo{
     width: 100%;
@@ -205,6 +211,9 @@ let test_items = [
     align-items: center;
     font-size: 9px;
 }
+.latest_news_link_image {
+    transform: translate(-6px,3px);
+}
 
 /* bottom right text styles */
 .latest_news_buttom_right_info {
@@ -218,5 +227,79 @@ let test_items = [
 .infoStyle {
     display: flex;
     align-items: center;
+}
+
+
+/* responsive styles */
+
+@media screen and (max-width:1033px) {
+    .infoStyle:last-child {
+        display: none;
+    }
+}
+@media screen and (max-width:880px) {
+    .latest_news_box {
+        padding: 12px;
+    }
+    .last_news_box {
+        transform: translate(13px,-30px);
+    }
+    .latest_news_desc_box {
+        gap: 2px;
+    }
+    .latest_news_buttom_right_info {
+        gap: 5px;
+    }
+    .lastNews_title {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .usless_desc_display {
+        display: none;
+    }
+}
+
+@media screen and (max-width:805px) {
+    .latest_news_link {
+        width: 70px;
+        height: 20px;
+        font-size: 7px;
+    }
+    .latest_news_link_image {
+        transform: translate(-4px,2px);
+    }
+}
+
+@media screen and (max-width:754px) {
+    .last_news_box {
+        transform: translate(12px,-25px);
+    }
+}
+@media screen and (max-width:662px) {
+    .last_news_box {
+        transform: none;
+        color: #095195;
+    }
+}
+@media screen and (max-width:589px) {
+    .titles_box {
+        display: none;
+    }
+    .latest_news_box {
+        background-color: transparent;
+        gap: 20px;
+        padding: 0;
+    }
+    .latest_news_article {
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+        padding: 1rem;
+    }
+    .latest_news_desc_box {
+        gap: 15px;
+    }
 }
 </style>

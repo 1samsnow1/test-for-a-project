@@ -6,12 +6,12 @@
             <div class="footer_bottom_left_titles">
                 <div>
                     <img src="../../../assets/svgs/Vector (1).png" alt="">
-                    <span style="color: #095195;font-size: 9px;"> {{ item.bluescript }} </span>
+                    <span style="color: #095195;font-size: 11px;"> {{ item.bluescript }} </span>
                 </div>
-                <span style="color: #6D6D6D;font-size: 9px;"> {{ item.grayscript }}</span>
+                <span style="color: #6D6D6D;font-size: 11px;"> {{ item.grayscript }}</span>
             </div>
 
-            <div style="color: #6D6D6D; font-size: 8px;"> {{ item.info }}</div>
+            <div style="color: #6D6D6D; font-size: 10px;"> {{ item.info }}</div>
         </div>
 
         <!-- svgs -->
@@ -110,7 +110,8 @@ let descList = [
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
+    margin-bottom: 50px;
 }
 .footer_bottom_left_titles {
     display: flex;
@@ -120,7 +121,7 @@ let descList = [
 .footerBottomBox_info{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 15px;
 }
@@ -128,5 +129,8 @@ let descList = [
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(2,1fr);
+}
+@media screen and (max-width:466px){
+    
 }
 </style>

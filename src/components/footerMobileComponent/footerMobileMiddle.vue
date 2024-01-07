@@ -70,7 +70,7 @@ import { RouterLink } from 'vue-router';
     color: #7A7A7A;
 }
 .mobileFooterlink {
-    font-size: 9.57px;
+    font-size: 11px;
     color: #7A7A7A;
     text-decoration: none;
 }

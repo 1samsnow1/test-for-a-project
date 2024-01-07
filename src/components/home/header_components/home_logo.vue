@@ -37,6 +37,7 @@ import { RouterView } from 'vue-router';
 .logo_svg svg {
     width: 60px;
     height: 60px;
+    transform: translateY(5px);
 }
 @media screen and (max-width:1163px){
     .logo h1{

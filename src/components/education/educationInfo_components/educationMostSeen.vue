@@ -1,41 +1,36 @@
 <template>
-    <section class="school_news_box">
-        <!-- top titles -->
-        <div class="titles_box">
 
-            <div class="schoolNews_title_box">
+    <section class="education_mostSeen_box">
+
+<!-- top titles -->
+        <div class="education_titles_box">
+
+            <div class="education_mostSeen_title_box">
                 <img class="last_news_svg" src="@/assets/svgs/Vector_17.png" alt="akhabr_svg">
-                <h3 style="font-size: 14px;">اطلاعیه های مدرسه</h3>
+                <h3 style="font-size: 14px;">پربازدید ترین ها</h3>
             </div>
-            <router-link to="/" class="news_left_title_link"> همه اطلاعیه ها...</router-link>
+            <router-link to="/" class="news_left_title_link"> همه بازدیدها...</router-link>
 
         </div>
 
-        <article class="schoolNews_article" v-for="item in schoolList" key="item">
+        <article class="mostSeen_article" v-for="item in 4" key="item">
 
-            <!-- school news date -->
-            <div class="schoolNews_date">
-
-                <span class="date_number">
-                    02
-                </span>
-
-                <div class="date_month">
-                    آبا
-                </div>
+            <!-- mostSeen title -->
+            <div class="mostSeen_article_title">
+                <span class="mostSeen_article_title_text">همه</span>
             </div>
 
             <!-- school news info -->
-            <div class="schoolNews_desc">
-                
+            <div class="mostSeen_desc_box">
+
                 <p style="font-size: 10px;color: #525252;">ساخت دومین سقاخانه امامزاده سید محمد عراق به سوریه 
                 </p>
 
-            <div class="shoolNews_footDescription">
+                <div class="mostSeen_footDesc">
 
-                <div class="schoolNews_footDesc_styles">
+                    <div class="mostSeen_footDesc_text">
                     <span>
-                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.3682 4.5V8.5C11.3682 9.88071 10.2489 11 8.86816 11H3.86816C2.48745 11 1.36816 9.88071 1.36816 8.5V3.5C1.36816 2.11929 2.48745 1 3.86816 1H8.36816" stroke="#095195" stroke-width="0.75" stroke-linecap="round"/>
 <circle cx="1" cy="1" r="1" transform="matrix(-1 0 0 1 11.8682 1)" stroke="#095195" stroke-width="0.75"/>
 <path d="M4.43491 7.375L6.46831 5.375L8.21123 6.625L10.2446 4.625" stroke="#095195" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,10 +40,10 @@
 
                     <span>بازدید ۴۸۹</span>
                 </div>
-                
-                <div class="schoolNews_footDesc_styles">
-                    <span>
-                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                <div class="mostSeen_footDesc_text">
+                <span>
+    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g opacity="0.75">
 <path d="M3.65353 2.64555C3.4663 2.64555 3.31104 2.49028 3.31104 2.30305V0.933071C3.31104 0.745841 3.4663 0.590576 3.65353 0.590576C3.84076 0.590576 3.99603 0.745841 3.99603 0.933071V2.30305C3.99603 2.49028 3.84076 2.64555 3.65353 2.64555Z" fill="#095195"/>
 <path d="M7.30636 2.64555C7.11913 2.64555 6.96387 2.49028 6.96387 2.30305V0.933071C6.96387 0.745841 7.11913 0.590576 7.30636 0.590576C7.49359 0.590576 7.64886 0.745841 7.64886 0.933071V2.30305C7.64886 2.49028 7.49359 2.64555 7.30636 2.64555Z" fill="#095195"/>
@@ -63,52 +58,54 @@
 </g>
 </svg>
 
-                    </span>
+                </span>
 
-                    <span>12شهریور1401</span>
+                <span>12شهریور1401</span>
                 </div>
 
-                <div class="schoolNews_footDesc_styles">
-                    <span>
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="mostSeen_footDesc_text">
+                <span>
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.12795 7.72824L5.18751 7.72826L5.31949 7.72862C6.44046 7.73461 9.06645 7.83651 9.06645 9.56874C9.06645 11.1748 6.90975 11.3894 5.23215 11.3975L4.93642 11.3974C3.81545 11.3914 1.18945 11.2895 1.18945 9.55774C1.18945 7.91774 3.43695 7.72824 5.12795 7.72824ZM5.12795 8.47824C3.01245 8.47824 1.93945 8.84174 1.93945 9.55774C1.93945 10.2807 3.01245 10.6477 5.12795 10.6477C7.24345 10.6477 8.31645 10.2842 8.31645 9.56874C8.31645 8.84474 7.24345 8.47824 5.12795 8.47824ZM5.12795 1.50024C6.59445 1.50024 7.78695 2.69324 7.78695 4.15924C7.78695 5.62524 6.59445 6.81824 5.12795 6.81824H5.11245C4.40295 6.81574 3.73795 6.53724 3.23945 6.03524C2.74045 5.53274 2.46695 4.86574 2.46944 4.15774C2.46944 2.69324 3.66195 1.50024 5.12795 1.50024ZM5.12795 2.25024C4.07595 2.25024 3.21944 3.10674 3.21944 4.15924C3.21745 4.66874 3.41345 5.14624 3.77095 5.50674C4.12895 5.86674 4.60595 6.06624 5.11395 6.06824L5.12795 6.43874V6.06824C6.18045 6.06824 7.03695 5.21174 7.03695 4.15924C7.03695 3.10674 6.18045 2.25024 5.12795 2.25024Z" fill="#095195"/>
 </svg>
 
-                    </span>
+                </span>
 
-                    <span>علیرضالو</span>
+                <span>علیرضالو</span>
                 </div>
 
-            </div>
+                </div>
 
             </div>
 
         </article>
 
     </section>
+
 </template>
 
 <script setup>
-let schoolList = [
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:10},
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:11},
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:12},
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:13},
-];
 </script>
 
-<style>
-.school_news_box {
+<style scoped>
+.education_mostSeen_box {
     background-color: white;
-    padding: 1rem;
+    /* padding: 10px; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    /* gap: 2rem; */
 }
-.schoolNews_title_box {
+/* title style */
+.education_titles_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.education_mostSeen_title_box {
     width: 144px;
     height: 53px;
     transform: translate(16px,-25px);
@@ -118,71 +115,49 @@ let schoolList = [
     line-height: 35px;
 }
 /* article styles */
-.schoolNews_article {
-    display: grid;
-   grid-template-columns:minmax(20px,1fr) 4fr;
-   gap: 10px;
-   border-bottom: 2px dashed lightgray; 
-   padding: 10px 0;
-   padding-bottom: 25px;
-}
-.schoolNews_article:last-child {
-    border-bottom: none;
-}
-/* school date styles */
-.schoolNews_date {
-    width: 54px;
-    height: 54px;
-    color: white;
-    background-color: lightgray;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-radius: 15px;
-}
-.date_number {
+.mostSeen_article {
     width: 100%;
-    height: 34px;
-    font-size: 16px;
-    line-height: 36px;
-}
-.date_month {
-    width: 100%;
-    height: 20px;
-    font-size: 11px;
-    line-height: 22px;
-    background-color: blue;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-/* schoolNews description styles */
-.schoolNews_desc {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.shoolNews_footDescription {
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    border-bottom: 2px dashed lightgray;
 }
-.schoolNews_footDesc_styles {
+.mostSeen_article:last-child {
+    border-bottom: none;
+}
+.mostSeen_article_title {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+}
+.mostSeen_article_title_text {
+    width: 100%;
+    height: 20px;
+    font-size: 11px;
+    line-height: 22px;
+    color: #ffff;
+    background-color: rgb(180, 121, 12);
+    border-radius: 10px;
+}
+.mostSeen_desc_box , .mostSeen_footDesc {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.mostSeen_desc_box {
+    flex-direction: column;
+    gap: 20px;
+}
+.mostSeen_footDesc_text {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 9px;
     color: #000000;
-}
-
-@media screen and (max-width:877px) {
-    .schoolNews_footDesc_styles:last-child {
-        display: none;
-    }
-    .schoolNews_title_box {
-        transform: none;
-        color: #095195;
-    }
 }
 </style>

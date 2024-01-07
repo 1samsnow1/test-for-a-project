@@ -28,10 +28,10 @@ import footerLeftBox from './footer_component/footerLeftBox.vue';
     width: 100%;
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 2rem;
 }
 .footer_center_box {
     transform: translateY(-20px);

@@ -26,7 +26,7 @@ import footerMobilebottom from './footerMobileComponent/footerMobilebottom.vue';
 <style scoped>
 .footer {
     width: 100%;
-    background-color: white;
+    background-color: #ffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,5 +36,9 @@ import footerMobilebottom from './footerMobileComponent/footerMobilebottom.vue';
 .footer_top_box {
     transform: translateY(-20px);
 }
-
+@media screen and (max-width:450px) {
+    .footer_bottom_box {
+        transform: translateX(-15px);
+    }
+}
 </style>

@@ -68,7 +68,8 @@ import { RouterLink} from 'vue-router';
 
 <style scoped>
 .amoozeshZaban_box {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

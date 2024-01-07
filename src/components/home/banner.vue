@@ -3,20 +3,21 @@
   <section class="bannerBox">
 
       <!-- right article -->
-    <router-link to="/">
+    <div class="box">
+      <router-link to="/">
       <article class="banner_right_article">
 
       <figure class="banner_right_article_img">
 
-        <img style="width: 100%;height: 100%;" src="@/assets/testy_images/image_20.png" alt="banner_right_img">
-
+        <img class="bannerRightArticleImage" src="@/assets/testy_images/bannerRightImage.png" alt="banner_right_img">
+        <img class="bannerTopMobileImage" src="@/assets/testy_images/bannerTopMobileImage.png" alt="bannerTopMobileImage">
       </figure>
 
       <div class="banner_right_card_content">
 
         <span class="banner_right_card_top_type">مذهبی</span>
-        <h3 style="font-size: 20.22px;">عید مبعث</h3>
-        <p class="banner_right_card_text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
+        <h3 class="banner_titles">عید مبعث</h3>
+        <p class="banner_texts">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
 
       </div>
       <span class="banner_right_top_svg">
@@ -86,8 +87,9 @@
       </span>
       </article>
     </router-link>
+    </div>
     <!-- left banners -->
-    <div class="banner_left_box">
+    <div class="banner_left_box box">
       <!-- left top artilce -->
       <router-link to="/">
 
@@ -95,15 +97,15 @@
         <!-- left top image -->
         <figure class="banner_left_article_img">
 
-          <img style="width: 100%;height: 100%;" src="@/assets/testy_images/image_12.png" alt="banner_right_img">
-
+          <img class="bannerLeftTopImage" src="@/assets/testy_images/bannerLeftTopImage.png" alt="banner_right_img">
+          <img class="bannerMiddleMobileImage" src="@/assets/testy_images/bannerMiddleMobileImage.png" alt="">
         </figure>
         <!-- left top content -->
         <div class="banner_left_card_content">
 
           <span class="banner_left_top_card_type">اجتماعی</span>
-          <h3 style="font-size: 20px;">دهه فاطمیه</h3>
-          <p class="banner_right_card_text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
+          <h3 class="banner_titles">دهه فاطمیه</h3>
+          <p class="banner_texts">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
 
         </div>
         </article>
@@ -117,15 +119,15 @@
         <!-- left bottom image -->
         <figure class="banner_left_article_img">
 
-          <img style="width: 100%;height: 100%;" src="@/assets/testy_images/image_11.png" alt="banner_right_img">
-
+          <img class="bannerLeftBottomImage" src="@/assets/testy_images/bannerLeftBottomImage.png" alt="banner_right_img">
+          <img class="bannerBottomMobileImage" src="@/assets/testy_images/bannerBottomMobileImage.png" alt="">
         </figure>
         <!-- left bottom content -->
         <div class="banner_right_card_content">
 
           <span class="banner_left_bottom_card_type">سیاسی</span>
-          <h3 style="font-size: 20px;">عید مبعث</h3>
-          <p class="banner_right_card_text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
+          <h3 class="banner_titles">عید مبعث</h3>
+          <p class="banner_texts">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
 
         </div>
         <span class="banner_left_bottom_svg">
@@ -193,6 +195,7 @@
 </svg>
 
         </span>
+        
       </article>
 
     </router-link>
@@ -209,23 +212,18 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 .bannerBox {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   /* background-color: white; */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
-.banner_content_span {
-  display: inline;
-  padding: 5px;
-  background-color: orange;
-  border-radius: 20px;
-}
-/* right content styles */
-.banner_right_article {
+.box {
   flex: 1;
+}
+.banner_right_article {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -244,19 +242,18 @@ import { RouterLink } from 'vue-router'
 }
 .banner_right_article_img {
   width: 100%;
-  height: 500px;
+  max-height: 430px;
   border-radius: 10px;
 }
-.banner_right_article_img img{
+.bannerRightArticleImage {
   width: 100%;
-  height: 500px;
+  max-height: 430px;
   border-radius: 10px;
 }
 .banner_right_card_content {
-  width: 94%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -273,7 +270,11 @@ import { RouterLink } from 'vue-router'
   border: 1px solid #ffff;
   border-radius: 20px;
 }
-.banner_right_card_text {
+.banner_titles {
+  font-size: 20.22px;
+}
+.banner_texts {
+  width: 90%;
   font-size: 13.22px;
   text-align: justify;
   color: white;
@@ -281,18 +282,15 @@ import { RouterLink } from 'vue-router'
 }
 /* left content styles */
 .banner_left_box {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  gap: 28px;
+
 }
 .banner_left_card_content {
-  width: 94%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 9px;
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -300,6 +298,7 @@ import { RouterLink } from 'vue-router'
 }
 /* left top article */
 .banner_left_top_article {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -316,9 +315,9 @@ import { RouterLink } from 'vue-router'
   background:linear-gradient(#ffffff38 ,rgba(0,0,0,0.5) 70% );
   border-radius: 10px;
 }
-.banner_left_article_img , .banner_left_article_img img {
+.banner_left_article_img , .bannerLeftTopImage {
   width: 100%;
-  height: 240px;
+  max-height: 201px;
   border-radius: 10px;
 }
 .banner_left_top_card_type {
@@ -342,11 +341,16 @@ import { RouterLink } from 'vue-router'
   line-height: 24px;
   text-align: center;
 }
+.bannerLeftBottomImage {
+  width: 100%;
+  max-height: 201px;
+  border-radius: 10px;
+}
 /* banner svg styles */
 .banner_left_bottom_svg {
   position: absolute;
   left: -60px;
-  bottom: -60px;
+  bottom: -65px;
   z-index: 10;
 }
 .banner_left_bottom_svg svg{
@@ -365,6 +369,11 @@ import { RouterLink } from 'vue-router'
 }
 
 /* responsive styles */
+.bannerTopMobileImage , .bannerMiddleMobileImage , .bannerBottomMobileImage {
+  display: none;
+  width: 100%;
+}
+
 @media screen and (max-width:1277px){
   .banner_right_card_content , .banner_left_card_content {
     bottom: 10px;
@@ -378,6 +387,88 @@ import { RouterLink } from 'vue-router'
   }
   .banner_right_article , .banner_left_box {
     width: 100%;
+  }
+}
+@media screen and (max-width:701px) {
+  .bannerRightArticleImage{
+    width: 100%;
+    height: 430px;
+  }
+  .banner_right_article::after {
+    width: 100%;
+    height: 430px;
+  }
+
+  .banner_left_top_article::after {
+    width: 100%;
+    height: 201px;
+  }
+  .bannerLeftBottomImage , .bannerLeftTopImage {
+    width: 100%;
+    height: 201px;
+  }
+}
+@media screen and  (max-width:595px) {
+  /* svg styles */
+  .banner_left_bottom_svg {
+    display: none;
+  }
+  .banner_right_top_svg {
+    display: none;
+  }
+  /* other styles */
+  .bannerRightArticleImage{
+    width: 100%;
+    height: 100%;
+  }
+  .banner_right_article::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  .banner_left_top_article::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bannerRightArticleImage , .bannerLeftBottomImage , .bannerLeftTopImage {
+    display: none;
+  }
+  .bannerTopMobileImage , .bannerMiddleMobileImage , .bannerBottomMobileImage {
+    display: block;
+  }
+  .bannerTopMobileImage {
+    min-height: 251px;
+  }
+  .bannerMiddleMobileImage , .bannerBottomMobileImage{
+    min-height: 122px;
+  }
+  .banner_titles {
+    font-size: 12px;
+  }
+  .banner_texts {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .banner_right_card_top_type {
+    width: 31px;
+    height: 14px;
+    line-height: 14px;
+  }
+  .banner_right_card_content {
+    gap: 4px;
+    bottom: 0;
+  }
+  .banner_left_card_content {
+    gap:4px;
+  }
+  .banner_left_top_card_type , .banner_left_bottom_card_type{
+    width: 34px;
+    height: 14px;
+    line-height: 14px;
+  }
+  .banner_left_bottom_card_type , .banner_right_card_top_type , .banner_left_top_card_type {
+    font-size: 8px;
   }
 }
 </style>

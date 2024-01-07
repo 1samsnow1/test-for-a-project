@@ -107,22 +107,13 @@ let mostSeenList = [
 .mostSeen_title_box {
     width: 144px;
     height: 53px;
-    transform: translate(18px,-25px);
+    transform: translate(16px,-25px);
     color: white;
     text-align: center;
     position: relative;
     line-height: 35px;
 }
 /* article styles */
-/* .mostSeen_article {
-    width: 100%;
-    padding: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    border-bottom: 2px dashed lightgray;
-} */
 .mostSeen_article_title {
     width: 54px;
     height: 54px;
@@ -139,15 +130,23 @@ let mostSeenList = [
     background-color: rgb(180, 121, 12);
     border-radius: 10px;
 }
-/* .mostSeen_desc_box , .mostSeen_footDesc {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+
+
+@media screen and (max-width:877px) {
+    .mostSeen_box {
+        padding: 10px;
+    }
+    .mostSeen_title_box {
+        transform: translate(11px,-25px);
+    }
 }
-.mostSeen_title {
-    padding: 2px 20px;
-    background-color: orange;
-    border-radius: 5px;
-} */
+@media screen and (max-width:662px){
+    .last_news_svg {
+        display: none;
+    }
+    .mostSeen_title_box{
+        transform: none;
+        color: #095195;
+    }
+}
 </style>

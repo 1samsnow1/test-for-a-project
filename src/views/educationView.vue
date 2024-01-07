@@ -6,7 +6,9 @@
         <!-- educationBanner -->
         <educationBanner/>
         <!-- education info -->
-        <educationInfo/>
+        <div class="tt2">
+            <educationInfo/>
+        </div>
     </section>
 </template>
 
@@ -18,11 +20,20 @@ import educationInfo from '../components/education/educationInfo.vue'
 
 <style>
 .education_content {
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 80%;
     margin: 50px auto;
 }
 
+.tt2 {
+    margin-bottom: 100px;
+}
+
+@media screen and (max-width:1190px) {
+    .education_content {
+        width: 90%;
+    }
+}
 </style>

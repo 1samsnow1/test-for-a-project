@@ -153,6 +153,7 @@ export default {
     };
 
     onMounted(() => {
+      handleResize();
       window.addEventListener('resize', handleResize);
     });
 
@@ -174,8 +175,10 @@ export default {
 
 <style>
 .specialNews_box {
+  width: 80%;
+  margin: 0 auto;
   background-color: white;
-  box-shadow: 0px -2px gray;
+  box-shadow: 0px -2px #1BA4AA2E;
 }
 .specialNews_box h2 {
   padding: 5px;
