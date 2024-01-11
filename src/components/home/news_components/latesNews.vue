@@ -15,7 +15,7 @@
         <article class="latest_news_article" v-for="item in test_items.item_list" key="item">
             <!-- article image -->
             <figure>
-                <img style="width: 100%;height: 200px;" src="@/assets/testy_images/image_6.png" alt="article_image">
+                <img style="width: 100%;height: 200px;" :src="item.image_url" alt="article_image">
             </figure>
 
             <!-- article description -->
@@ -31,12 +31,12 @@
                         </span>
 
                         <span  style="color: #8A8A8A;font-size: 10px;">
-                            این متن فاقد اهمیت است و جهت پر کردن فضای بالای عنوان است  
+                            {{item.subtitle}}
                         </span>
                     </div>
 
                     <h3 class="lastNews_title">
-                        با هم برای آرمانِ امام ، نشست هم اندیشی پیرامون وحدت حوزه و دانشگاه
+                        {{ item.title }}
                     </h3>
                 </div>
 

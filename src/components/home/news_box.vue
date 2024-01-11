@@ -9,7 +9,7 @@
                         </div>
 
                         <div class="normalLastNews">
-                            <latesNews :item_list="newsItem"></latesNews>
+                            <latesNews :item_list="newsList"></latesNews>
                         </div>
 
                     </div>
@@ -29,13 +29,16 @@ import latesNews from './news_components/latesNews.vue';
 import lastNewsMobile from './news_components/lastNewsMobile.vue';
 import schoolNews from './news_components/schoolNews.vue';
 import mostSeen from './news_components/mostSeen.vue';
+import { useStore } from 'vuex';
+import { computed,onMounted,onBeforeUnmount } from 'vue';
+const store= useStore();
 
-let newsItem = [
-    {title:'hello'},
-    {title:'hello'},
-    {title:'hello'},
-    {title:'hello'},
-]
+let newsList = computed (()=>{
+    return store.getters.getNewsList
+})
+onMounted(()=>{
+    store.dispatch("getNewsListFromServer")
+})
 
 </script>
 

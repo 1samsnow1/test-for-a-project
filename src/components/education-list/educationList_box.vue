@@ -39,26 +39,20 @@
 
 <script setup>
 import {ref , computed, onMounted,onBeforeUnmount, watch, getCurrentInstance } from 'vue';
+import {useStore} from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 import latesNews from '../home/news_components/latesNews.vue';
 import mostSeen from '../home/news_components/mostSeen.vue';
 import searchBox from './searchBox.vue';
+const store=useStore();
 
-let test_items = [
-    {title:"title1", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title2", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title3", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."},
-    {title:"title4", desc:"Lorem ipsum dolor sit amet."},
-];
+let test_items = computed(()=>{
+    return store.getters.getNewsList
+})
+
 // pagination functions and variables
 const currentPage = ref(1);
-const itemsPerPage = 4;
+const itemsPerPage = 8;
 
 // const pageQueryParam = this.$route.query.page;
 // if (pageQueryParam && !isNaN(pageQueryParam)) {
@@ -126,6 +120,7 @@ function handlerDisplay(){
 handlerDisplay();
 onMounted(()=>{
     window.addEventListener("resize",handlerDisplay);
+    store.dispatch("getNewsListFromServer")
 })
 onBeforeUnmount(()=>{
     window.removeEventListener("resize",handlerDisplay);
@@ -139,7 +134,6 @@ function mostSeenDisplay(){
     }
 }
 </script>
-
 <style scoped>
 .listBox {
     display: grid;
