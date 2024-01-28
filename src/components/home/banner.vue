@@ -3,21 +3,21 @@
   <section class="bannerBox">
 
       <!-- right article -->
-    <div class="box">
-      <router-link to="/">
+    <div v-if="bannerList.bannerItem" class="box">
+      <router-link :to="`/education/${bannerList.bannerItem[2].id}`">
       <article class="banner_right_article">
 
       <figure class="banner_right_article_img">
 
-        <img class="bannerRightArticleImage" src="@/assets/testy_images/bannerRightImage.png" alt="banner_right_img">
-        <img class="bannerTopMobileImage" src="@/assets/testy_images/bannerTopMobileImage.png" alt="bannerTopMobileImage">
+        <img class="bannerRightArticleImage" :src="bannerList.bannerItem[2].image_url" alt="banner_right_img">
+        <img class="bannerTopMobileImage" :src="bannerList.bannerItem[2].image_url" alt="bannerTopMobileImage">
       </figure>
 
       <div class="banner_right_card_content">
 
         <span class="banner_right_card_top_type">مذهبی</span>
         <h3 class="banner_titles">عید مبعث</h3>
-        <p class="banner_texts">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
+        <p class="banner_texts">{{ bannerList.bannerItem[2].title }}</p>
 
       </div>
       <span class="banner_right_top_svg">
@@ -89,45 +89,45 @@
     </router-link>
     </div>
     <!-- left banners -->
-    <div class="banner_left_box box">
+    <div v-if="bannerList.bannerItem" class="banner_left_box box">
       <!-- left top artilce -->
-      <router-link to="/">
+      <router-link :to="`/education/${bannerList.bannerItem[2].id}`">
 
         <article class="banner_left_top_article">
         <!-- left top image -->
         <figure class="banner_left_article_img">
 
-          <img class="bannerLeftTopImage" src="@/assets/testy_images/bannerLeftTopImage.png" alt="banner_right_img">
-          <img class="bannerMiddleMobileImage" src="@/assets/testy_images/bannerMiddleMobileImage.png" alt="">
+          <img class="bannerLeftTopImage" :src="bannerList.bannerItem[0].image_url" alt="banner_right_img">
+          <img class="bannerMiddleMobileImage" :src="bannerList.bannerItem[0].image_url" alt="">
         </figure>
         <!-- left top content -->
         <div class="banner_left_card_content">
 
           <span class="banner_left_top_card_type">اجتماعی</span>
           <h3 class="banner_titles">دهه فاطمیه</h3>
-          <p class="banner_texts">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
+          <p class="banner_texts">{{ bannerList.bannerItem[0].title }} </p>
 
         </div>
         </article>
 
       </router-link>
       <!-- left bottom article -->
-      <router-link to="/">
+      <router-link :to="`/education/${bannerList.bannerItem[1].id}`">
 
       <article class="banner_left_top_article">
 
         <!-- left bottom image -->
         <figure class="banner_left_article_img">
 
-          <img class="bannerLeftBottomImage" src="@/assets/testy_images/bannerLeftBottomImage.png" alt="banner_right_img">
-          <img class="bannerBottomMobileImage" src="@/assets/testy_images/bannerBottomMobileImage.png" alt="">
+          <img class="bannerLeftBottomImage" :src="bannerList.bannerItem[1].image_url" alt="banner_right_img">
+          <img class="bannerBottomMobileImage" :src="bannerList.bannerItem[1].image_url" alt="">
         </figure>
         <!-- left bottom content -->
         <div class="banner_right_card_content">
 
           <span class="banner_left_bottom_card_type">سیاسی</span>
           <h3 class="banner_titles">عید مبعث</h3>
-          <p class="banner_texts">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه </p>
+          <p class="banner_texts">{{ bannerList.bannerItem[1].title }} </p>
 
         </div>
         <span class="banner_left_bottom_svg">
@@ -208,6 +208,8 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+
+let bannerList = defineProps(['bannerItem'])
 </script>
 
 <style scoped>
@@ -242,11 +244,13 @@ import { RouterLink } from 'vue-router'
 }
 .banner_right_article_img {
   width: 100%;
+  height: 499px;
   max-height: 430px;
   border-radius: 10px;
 }
 .bannerRightArticleImage {
   width: 100%;
+  height: 100%;
   max-height: 430px;
   border-radius: 10px;
 }
@@ -417,6 +421,9 @@ import { RouterLink } from 'vue-router'
     display: none;
   }
   /* other styles */
+  .banner_right_article_img {
+    height: 100%;
+  }
   .bannerRightArticleImage{
     width: 100%;
     height: 100%;

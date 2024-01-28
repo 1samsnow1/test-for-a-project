@@ -2,25 +2,21 @@
 
     <section class="amoozeshZaban_box">
 
-        <article class="card_box" v-for="i in 3" key="i">
+        <article class="card_box" v-for="item in amoozeshList.amoozeshItem" key="i">
             <!-- card image -->
             <figure class="card_img">
-                <img style="width: 100%;" src="../../assets/testy_images/Frame 192.png" alt="card_image">
+                <img style="width: 100%;" :src="item.image_url" alt="card_image">
             </figure>
             <!-- card description -->
             <div class="card_desc">
                 <!-- description date -->
                 <div class="top_text">
-                    <span>10</span>
-                    <span>شهریور</span>
-                    <span>1402</span>
+                    <span>{{ item.created_at }}</span>
                 </div>
                 <!-- main content -->
-                <h3 style="color: #095195; font-size: 14px;">آموزش عربی با لحجه الحاقی</h3>
+                <h3 style="color: #095195; font-size: 14px;">{{ item.title }}</h3>
 
-                <p class="card_center_text">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صعنت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه دروزنامه و مجله در ستون وگرپها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.ت و برای شرایط فعلی تکنولوژی مورد نیاز 
-                </p>
+                <p class="card_center_text">{{ item.summary }}</p>
 
                 <!-- foot description -->
 
@@ -35,12 +31,12 @@
 
                         </span>
                         <div class="bazdid_style">
-                            <span>12345</span>
+                            <span>{{ item.views_count }}</span>
                             <span>بازدید</span>
                         </div>
                     </span>
                     
-                    <router-link class="amoozeshZaban_link" to="/">
+                    <router-link class="amoozeshZaban_link" :to="`/education/${item.id}`">
                         <span>
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.771 5.11426H8.021" stroke="#095195" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -64,6 +60,7 @@
 
 <script setup>
 import { RouterLink} from 'vue-router';
+let amoozeshList = defineProps(["amoozeshItem"])
 </script>
 
 <style scoped>

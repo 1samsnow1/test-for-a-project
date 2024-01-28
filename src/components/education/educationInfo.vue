@@ -3,43 +3,48 @@
     <section class="educationInfo_box">
 
         <div class="educationText_box">
-            <educationInfoText/>
+            <educationInfoText :itemText="newsDetail"/>
         </div>
 
         <div class="mostSeen_box"> 
             <mostSeen_box/>
         </div>
 
-        <div class="educationCommentForm">
+        <!-- <div class="educationCommentForm">
             <educationForm/>
-        </div>
+        </div> -->
 
-        <div class="comment">
+        <!-- <div class="comment">
             <comment v-for="comment in comments" :key="comment.id" v-bind="comment"/>
-        </div>
+        </div> -->
     </section>
 
 </template>
 
-<script>
-import commentsData from '../../data/comments.js';
+<script setup>
+// import commentsData from '../../data/comments.js';
+// import educationForm from './educationInfo_components/educationCommentForm.vue';
+// import comment from './educationInfo_components/comment.vue';
 import educationInfoText from './educationInfo_components/educationInfo_text.vue';
 import mostSeen_box from './educationInfo_components/educationMostSeen.vue';
-import educationForm from './educationInfo_components/educationCommentForm.vue';
-import comment from './educationInfo_components/comment.vue';
-export default {
-    components:{
-        educationInfoText,mostSeen_box,educationForm,comment,
-    },
-    computed: {
-        comments() {
-        return [...commentsData];
-        },
-    },
-    setup(){
+import { ref, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
+import { useRoute, useRouter } from 'vue-router';
+const store = useStore();
+const router = useRouter();
+const route = useRoute();
+let newsDetail = computed(()=>{
+    return store.getters.getNewsDetail
+})
+onMounted(()=>{
+    let dynamicId = route.params.id;
+    console.log(dynamicId)
+    store.dispatch("getNewsDetailFromServer", dynamicId)
+})
 
-    }
-}
+
+// const comments = ref([...commentsData]);
+
 </script>
 
 <style scoped>
@@ -47,12 +52,12 @@ export default {
     display: grid;
     grid-template-columns: 2.5fr minmax(307px,1fr);
     gap: 10px;
-    row-gap: 35px;
 }
 .educationText_box {
 }
 .mostSeen_box {
     justify-content: space-between;
+    max-height: 380px;
 }
 .educationCommentForm {
     grid-column: 1/2;

@@ -2,37 +2,46 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import educationList from '../views/educationListView.vue'
 import contactUs from '../views/contactUs.vue'
+import education from '../views/educationView.vue'
+import notFound from '../views/notFound.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/educationList',
+      path:'/:catchAll(.*)',
+      name:'notFound',
+      component: notFound,
+    },
+    {
+      path: '/news',
       name: 'educationList',
       component: educationList
     },
-    {
-      path: '/educationList/:page',
-      name: 'educationListPage',
-      component: educationList,
-    },
+    // {
+    //   path: '/category/:category_id/page/:page',
+    //   name: 'newsPage',
+    //   component: educationList,
+    // },
     {
       path: '/',
       name: 'home',
       component: HomeView
     },
     {
-      path: '/contactUs',
+      path: '/contact-us',
       name: 'contactUs',
       component : contactUs,
     },
     {
       path: '/education',
       name: 'education',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/educationView.vue')
-    }
+      component:education,
+    },
+    {
+      path: '/education/:id',
+      name: 'education',
+      component:education,
+    },
   ]
 })
 

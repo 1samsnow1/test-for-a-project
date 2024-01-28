@@ -1,22 +1,13 @@
 <template>
     <nav class="header_navbar">
-        <li class="header_list" v-for="listItem in navbarList" key="listItem">
-            <router-link :to="listItem.address" class="link">{{ listItem.listName }}</router-link>
+        <li class="header_list" v-for="Item in navbarList.headerItem" key="listItem">
+            <router-link :to="Item.link" class="link">{{ Item.title }}</router-link>
         </li>
     </nav>
 </template>
 <script setup>
 import { RouterLink } from 'vue-router'
-let navbarList= [
-    {listName:"صفحه اصلی" ,address:'/education'},
-    {listName:"حوزه مدیریت" ,address:'/education'},
-    {listName:"معاونت پزوهش" ,address:'/education'},
-    {listName:"معاونت آموزش" ,address:'/education'},
-    {listName:"چند رسانه ای" ,address:'/education'},
-    {listName:"تماس با ما",address:'/contactUs'},
-    {listName:"اخبار" ,address:'/education'},
-    {listName:"درباره ما" ,address:'/education'},
-]
+let navbarList = defineProps(['headerItem']);
 </script>
 <style scoped>
 

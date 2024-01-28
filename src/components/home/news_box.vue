@@ -5,20 +5,22 @@
                     <div class="Last">
                         <div class="lastNewsMobile">
                             <h3 class="mobileLastNews_title">اخرین اخبار</h3>
-                            <lastNewsMobile></lastNewsMobile>
+                            <lastNewsMobile v-if="newsList" :item_list="newsList.slice(0,4)"></lastNewsMobile>
                         </div>
 
                         <div class="normalLastNews">
-                            <latesNews :item_list="newsList"></latesNews>
+                            <latesNews v-if="newsList" :item_list="newsList.slice(0,4)"></latesNews>
                         </div>
 
                     </div>
 
-                    <div class="schoolNews">
-                        <schoolNews></schoolNews>
-                    </div>
-                    <div class="mostSeen">
-                        <mostSeen></mostSeen>
+                    <div class="announcement">
+                        <div class="schoolNews">
+                            <schoolNews :schoolAnnounce="schoolAnnouncement"></schoolNews>
+                        </div>
+                        <div class="mostSeen">
+                            <mostSeen></mostSeen>
+                        </div>
                     </div>
             
     </div>
@@ -32,12 +34,18 @@ import mostSeen from './news_components/mostSeen.vue';
 import { useStore } from 'vuex';
 import { computed,onMounted,onBeforeUnmount } from 'vue';
 const store= useStore();
-
+// last news object
 let newsList = computed (()=>{
-    return store.getters.getNewsList
+    return store.getters.getNewsList;
 })
+// school announcement object
+let schoolAnnouncement = computed (()=>{
+    return store.getters.getSchoolAnnouncement;
+})
+// requests
 onMounted(()=>{
-    store.dispatch("getNewsListFromServer")
+    store.dispatch("getNewsListFromServer",1);
+    store.dispatch("getSchoolAnnounceFromServer");
 })
 
 </script>
@@ -49,23 +57,24 @@ onMounted(()=>{
     background-color: transparent;
     display: grid;    
     grid-template-columns:  2fr 340px;
-    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+.announcement {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 .Last {
     /* width: 370px; */
-    grid-row: 1/3;
 }
 .schoolNews , .mostSeen {
     border-radius:10px;
 }
 .schoolNews{
     background-color: white;
-    grid-row: 1/2;
 }
 .mostSeen {
     background-color: white;
-    grid-row: 2/3;
 }
 .lastNewsMobile {
     display: none;
@@ -79,20 +88,17 @@ onMounted(()=>{
     .news_box {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
         gap: 20px;
     }
     .Last {
         grid-column: 1/3;
-        grid-row: 1/2;
     }
-    .schoolNews  {
-        grid-column: 1/2;
-        grid-row: 2/3;
+    .announcement  {
+        grid-column: 1/3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
     .mostSeen {
-        grid-column: 2/3;
-        grid-row: 2/3;
         transform: translateY(4px);
     }
 }
@@ -102,18 +108,14 @@ onMounted(()=>{
         flex-direction: column;
         gap: 35px;
     }
+    .announcement {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
     .Last , .schoolNews , .mostSeen {
         grid-column: none;
         grid-row: none;
-    }
-    .Last {
-        order: 1;
-    }
-    .schoolNews {
-        order: 2;
-    }
-    .mostSeen{
-        order: 3;
     }
 }
 @media screen and (max-width:554px) {

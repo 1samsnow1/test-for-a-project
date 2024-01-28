@@ -37,17 +37,16 @@
       @slideChange="onSlideChange"
       ref="mySwiper"
   >
-    <swiper-slide v-for="item in 3" key="item">
+    <swiper-slide v-for="item in specialNewsList.specialNewsitem" key="item">
       <article class="specialNews_card">
         <!-- special news image -->
         <figure class="specialNews_image">
-          <img style="width: 100%;height: 100%;" src="@/assets/testy_images/image_19.png" alt="special_news_image">
+          <img style="width: 100%;height: 100%;" :src="item.image_url" alt="special_news_image">
         </figure>
         <!-- special news description -->
 
         <div class="specialNews_card_description">
-          <p class="specialNews_description"> گزارش تصویری بازدید معاون‌ آموزش حوزه‌های علمیه از نمایشگاه دستاوردهای مجتمع آموزشی پژوهشی تبلیغگزارش  
-          </p>
+          <p class="specialNews_description"> {{ item.title }} </p>
           <div class="specialNews_card_description_icons">
 
             <div class="specialNews_footDesc">
@@ -95,83 +94,69 @@
 
 </template>
 
-<script>
-import { RouterLink } from 'vue-router';
+<script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    const slidesPerView = ref(3);
-    let swiperInstance;
+const slidesPerView = ref(3);
+let swiperInstance;
 
-    const onSwiper = (swiper) => {
-      swiperInstance = swiper;
-    };
-
-    const onSlideChange = () => {
-      console.log('slide change');
-    };
-
-    const handleResize = () => {
-      slidesPerView.value = calculateSlidesPerView();
-      onSwiperUpdate();
-    };
-
-    const calculateSlidesPerView = () => {
-      if (window.innerWidth < 900) {
-        return 1;
-      } else if (window.innerWidth < 1120) {
-        return 2;
-      } else {
-        return 3;
-      }
-    };
-
-    const onSwiperUpdate = () => {
-      if (swiperInstance) {
-        swiperInstance.params.slidesPerView = slidesPerView.value;
-        swiperInstance.update();
-      }
-    };
-
-    const goPrev = () => {
-      if (swiperInstance) {
-        swiperInstance.slidePrev();
-      }
-    };
-
-    const goNext = () => {
-      if (swiperInstance) {
-        swiperInstance.slideNext();
-      }
-    };
-
-    onMounted(() => {
-      handleResize();
-      window.addEventListener('resize', handleResize);
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener('resize', handleResize);
-    });
-
-    return {
-      slidesPerView,
-      onSwiper,
-      onSlideChange,
-      goPrev,
-      goNext,
-    };
-  },
+const onSwiper = (swiper) => {
+  swiperInstance = swiper;
 };
 
+const onSlideChange = () => {
+  console.log('slide change');
+};
+
+const handleResize = () => {
+  slidesPerView.value = calculateSlidesPerView();
+  onSwiperUpdate();
+};
+
+const calculateSlidesPerView = () => {
+  if (window.innerWidth < 817) {
+    return 1;
+  } else if (window.innerWidth < 1120) {
+    return 2;
+  } else {
+    return 3;
+  }
+};
+
+const onSwiperUpdate = () => {
+  if (swiperInstance) {
+    swiperInstance.params.slidesPerView = slidesPerView.value;
+    swiperInstance.update();
+  }
+};
+
+const goPrev = () => {
+  if (swiperInstance) {
+    swiperInstance.slidePrev();
+  }
+};
+
+const goNext = () => {
+  if (swiperInstance) {
+    swiperInstance.slideNext();
+  }
+};
+
+// requests and objects
+let specialNewsList = defineProps(['specialNewsitem']);
+console.log(specialNewsList)
+onMounted(() => {
+  handleResize();
+  window.addEventListener('resize', handleResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
 </script>
+
 
 <style>
 .specialNews_box {
@@ -224,7 +209,7 @@ export default {
 }
 /* specialNews image styles */
 .specialNews_image{
-  widows: 80px;
+  width: 110px;
   height: 80px;
 }
 
@@ -259,5 +244,6 @@ export default {
 .specialNews_footDesc svg{
   widows: 18px;
   height: 18px;
+  transform: translateY(2px);
 }
 </style>

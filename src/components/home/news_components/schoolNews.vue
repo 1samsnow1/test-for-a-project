@@ -11,7 +11,7 @@
 
         </div>
 
-        <article class="schoolNews_article" v-for="item in schoolList" key="item">
+        <article class="schoolNews_article" v-for="item in schoolList.schoolAnnounce" key="item">
 
             <!-- school news date -->
             <div class="schoolNews_date">
@@ -28,8 +28,7 @@
             <!-- school news info -->
             <div class="schoolNews_desc">
                 
-                <p style="font-size: 10px;color: #525252;">ساخت دومین سقاخانه امامزاده سید محمد عراق به سوریه 
-                </p>
+                <p style="font-size: 10px;color: #525252;">  {{ item.title }}  </p>
 
             <div class="shoolNews_footDescription">
 
@@ -65,7 +64,7 @@
 
                     </span>
 
-                    <span>12شهریور1401</span>
+                    <span>{{ item.published_at }}</span>
                 </div>
 
                 <div class="schoolNews_footDesc_styles">
@@ -76,7 +75,7 @@
 
                     </span>
 
-                    <span>علیرضالو</span>
+                    <span>{{ item.user.name }}</span>
                 </div>
 
             </div>
@@ -89,12 +88,8 @@
 </template>
 
 <script setup>
-let schoolList = [
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:10},
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:11},
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:12},
-    {desc:"Lorem ipsum, dolor sit amet consectetur adipisicing.", date:13},
-];
+let schoolList = defineProps(["schoolAnnounce"]);
+// console.log(schoolList)
 </script>
 
 <style>
@@ -183,6 +178,14 @@ let schoolList = [
     .schoolNews_title_box {
         transform: none;
         color: #095195;
+    }
+}
+@media screen and (max-width:662px){
+    .school_news_box {
+        align-items: flex-start;
+    }
+    .schoolNews_article{
+        width: 100%;
     }
 }
 </style>

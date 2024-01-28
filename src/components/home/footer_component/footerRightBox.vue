@@ -10,12 +10,10 @@
                 <div class="line2"></div>
             </div>
 
-            <router-link class="linkColor" to="/">صفحه اصلی</router-link>
-            <router-link class="linkColor" to="/">صفحه اصلی</router-link>
-            <router-link class="linkColor" to="/">صفحه اصلی</router-link>
-            <router-link class="linkColor" to="/">صفحه اصلی</router-link>
-            <router-link class="linkColor" to="/">صفحه اصلی</router-link>
+            <span v-for="item in footerLinks">
+            <router-link class="linkColor" :to="item.link">{{ item.title }}</router-link>
 
+            </span>
         </div>
 
         <div class="footerLinks_order">
@@ -37,6 +35,16 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex';
+import { computed,onMounted } from 'vue';
+const store = useStore();
+let footerLinks = computed(()=>{
+    return store.getters.getFooterLinks
+})
+console.log(footerLinks)
+onMounted(()=>{
+    store.dispatch("getFooterLinksFromServer");
+})
 </script>
 
 <style scoped>

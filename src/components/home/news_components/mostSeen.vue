@@ -12,18 +12,17 @@
 
         </div>
 
-        <article class="schoolNews_article" v-for="item in 4" key="item">
+        <article class="schoolNews_article" v-for="item in mostSeen" key="item">
 
             <!-- mostSeen title -->
             <div class="mostSeen_article_title">
-                <span class="mostSeen_article_title_text">همه</span>
+                <span class="mostSeen_article_title_text"> {{ item.category.name }} </span>
             </div>
 
 <!-- school news info -->
 <div class="schoolNews_desc">
     
-    <p style="font-size: 10px;color: #525252;">ساخت دومین سقاخانه امامزاده سید محمد عراق به سوریه 
-    </p>
+    <p style="font-size: 10px;color: #525252;"> {{ item.title }}</p>
 
 <div class="shoolNews_footDescription">
 
@@ -59,7 +58,7 @@
 
         </span>
 
-        <span>12شهریور1401</span>
+        <span>{{ item.published_at }}</span>
     </div>
 
     <div class="schoolNews_footDesc_styles">
@@ -83,6 +82,15 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex';
+import { computed,onMounted } from 'vue';
+const store = useStore();
+let mostSeen = computed(()=>{
+   return store.getters.getMostSeen;
+})
+onMounted(()=>{
+    store.dispatch("getMostSeenFromServer")
+})
 let mostSeenList = [
     {title:"all1"},
     {title:"all2"},

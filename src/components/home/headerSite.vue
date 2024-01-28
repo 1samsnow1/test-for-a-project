@@ -10,7 +10,7 @@
 
     <!-- list -->
         <div class="navbarList">
-            <navbarList></navbarList>
+            <navbarList :headerItem="headerItems"></navbarList>
         </div>
    </div>
 
@@ -19,10 +19,17 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
+import { useStore } from 'vuex';
+import { computed,onMounted } from 'vue';
 import homeLogo from './header_components/home_logo.vue'
 import navbarList from './header_components/navbar_list.vue'
-
+const store = useStore();
+let headerItems = computed(()=>{
+    return store.getters.getHeaderList;
+})
+onMounted(()=>{
+    store.dispatch("getHeaderListFromServer");
+})
 </script>
 
 <style>

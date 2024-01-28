@@ -7,7 +7,7 @@
                 <img class="last_news_svg" src="@/assets/svgs/Vector_17.png" alt="akhabr_svg">
                 <h2 class="last_news_title">اخرین اخبار</h2>
             </div>
-            <router-link to="/educationList" class="news_left_title_link"> همه اخبار...</router-link>
+            <router-link to="/news" class="news_left_title_link"> همه اخبار...</router-link>
 
         </div>
 
@@ -93,7 +93,7 @@
 
                     </div>
 
-                    <router-link to="/" class="latest_news_link">
+                    <router-link :to="`/education/${item.id}`" class="latest_news_link">
                         <span>اطلاعات بیشتر</span>
                         <span class="latest_news_link_image">
                             <img src="@/assets/testy_images/newsLinkPointer.png" alt="linkImage">
@@ -107,7 +107,6 @@
 </template>
 
 <script setup>
-
 import { RouterLink } from 'vue-router';
 
 let test_items = defineProps(['item_list']);
@@ -128,7 +127,7 @@ let test_items = defineProps(['item_list']);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 .last_news_title {
     font-size: 18px;
@@ -166,7 +165,7 @@ let test_items = defineProps(['item_list']);
    display: grid;
    grid-template-columns: minmax(200px, 1fr) 2fr;
    gap: 20px;
-   padding-bottom: 2rem;
+   padding-bottom: 1rem;
    border-bottom: 1px dashed #DADADA;
 }
 .latest_news_article:last-child {
@@ -183,6 +182,7 @@ let test_items = defineProps(['item_list']);
     justify-content: flex-end;
     align-items: flex-start;
     gap: 15px;
+    transform: translateY(-6px);
 }
 .lastNews_title {
     color: #095195;

@@ -3,12 +3,12 @@
   <section class="homeView">
     <!-- banner -->
     <div class="banner contentGap">
-      <banner></banner>
+      <banner :bannerItem="bannerSlider"></banner>
     </div>
 
     <!-- special event -->
     <div class="specialNews contentGap">
-      <specialNews></specialNews>
+      <specialNews :specialNewsitem = "specialNewsList"></specialNews>
     </div>
 
     <!-- news  -->
@@ -23,7 +23,7 @@
       </div>
 
       <div class="defualtPeyvand">
-        <peyvands></peyvands>
+        <peyvands :peyvandItem="peyvandItems"></peyvands>
       </div>
 
     </div>
@@ -34,11 +34,11 @@
     <!-- amoozesh zaban cards -->
     <div class="amoozeshZaban contentGap">
         <div class="mobile_amoozesh_zaban">
-          <amoozeshZabanMobile ></amoozeshZabanMobile>
+          <amoozeshZabanMobile :amoozeshItem="amoozeshItems"></amoozeshZabanMobile>
         </div>
        
         <div class="defualt_amoozesh_zaban">
-          <amoozeshZaban></amoozeshZaban>
+          <amoozeshZaban :amoozeshItem="amoozeshItems"></amoozeshZaban>
         </div>
     </div>
 
@@ -55,8 +55,29 @@ import peyvandMobile from '../components/home/peyvandMobile.vue'
 import amoozeshTitle from '../components/home/amoozeshTitle.vue'
 import amoozeshZaban from '../components/home/amoozeshZaban_box.vue'
 import amoozeshZabanMobile from '../components/home/amoozeshZabanMobile.vue'
+import { useStore } from 'vuex'
+import { computed,onMounted } from 'vue';
+const store=useStore();
 
-let deviceScreen = screen.width;
+let specialNewsList = computed(()=>{
+  return store.getters.getSpecialNews
+})
+
+let peyvandItems = computed(()=>{
+  return store.getters.getPeyvand
+})
+let amoozeshItems = computed(()=>{
+  return store.getters.getAmoozeshArticle
+})
+let bannerSlider = computed(()=>{
+  return store.getters.getBannerSlider
+})
+onMounted(()=>{
+  store.dispatch("getSpecialNewsFromServer");
+  store.dispatch("getPeyvandFromServer");
+  store.dispatch("getHomeAmoozeshArticle");
+  store.dispatch("getBannerSliderFromServer");
+})
 </script>
 
 <style>

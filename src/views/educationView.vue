@@ -4,7 +4,7 @@
         <!-- page adress -->
         <pageAddress/>
         <!-- educationBanner -->
-        <educationBanner/>
+        <educationBanner :banner-item="newsDetail"/>
         <!-- education info -->
         <div class="tt2">
             <educationInfo/>
@@ -15,7 +15,22 @@
 <script setup>
 import pageAddress from '../components/education/address.vue';
 import educationBanner from '../components/education/educationBanner.vue';
-import educationInfo from '../components/education/educationInfo.vue'
+import educationInfo from '../components/education/educationInfo.vue';
+import { ref, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
+import { useRoute, useRouter } from 'vue-router';
+const store = useStore();
+const router = useRouter();
+const route = useRoute();
+let newsDetail = computed(()=>{
+    return store.getters.getNewsDetail
+})
+onMounted(()=>{
+    let dynamicId = route.params.id;
+    console.log(dynamicId)
+    store.dispatch("getNewsDetailFromServer", dynamicId)
+})
+
 </script>
 
 <style>

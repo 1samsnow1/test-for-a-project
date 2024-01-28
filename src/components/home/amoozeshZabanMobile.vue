@@ -8,27 +8,23 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
-      <swiper-slide v-for="i in 2" key="i">
+      <swiper-slide v-for="item in props.amoozeshItem" :key="item">
 
         <article class="card_box">
             <!-- card image -->
             <figure class="card_img">
-                <img style="width: 100%;" src="../../assets/testy_images/Frame 192.png" alt="card_image">
+                <img style="width: 100%;" :src="item.image_url" alt="card_image">
             </figure>
             <!-- card description -->
             <div class="card_desc">
                 <!-- description date -->
                 <div class="top_text">
-                    <span>10</span>
-                    <span>شهریور</span>
-                    <span>1402</span>
+                    {{ item.created_at }}
                 </div>
                 <!-- main content -->
-                <h3 style="color: #095195; font-size: 14px;">آموزش عربی با لحجه الحاقی</h3>
+                <h3 style="color: #095195; font-size: 14px;">{{ item.title }}</h3>
 
-                <p class="card_center_text">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صعنت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه دروزنامه و مجله در ستون وگرپها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.ت و برای شرایط فعلی تکنولوژی مورد نیاز 
-                </p>
+                <p class="card_center_text">  {{ item.summary }} </p>
 
                 <!-- foot description -->
 
@@ -43,12 +39,12 @@
 
                         </span>
                         <div class="bazdid_style">
-                            <span>12345</span>
+                            <span>{{item.views_count}}</span>
                             <span>بازدید</span>
                         </div>
                     </span>
                     
-                    <router-link class="amoozeshZaban_link" to="/">
+                    <router-link class="amoozeshZaban_link" :to="`/education/${item.id}`">
                         <span>
                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.771 5.11426H8.021" stroke="#095195" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -70,35 +66,23 @@
       </swiper-slide>
     </swiper>
 </template>
-<script>
-    import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-    import { RouterLink } from 'vue-router';
-    import { Swiper, SwiperSlide } from 'swiper/vue';
-    import 'swiper/css';
-    import 'swiper/css/navigation';
-    import 'swiper/css/pagination';
-    import 'swiper/css/scrollbar';
-  
-    // Import Swiper styles
-    export default {
-      components: {
-        Swiper,
-        SwiperSlide,
-      },
-      setup() {
-        const onSwiper = (swiper) => {
-          console.log(swiper);
-        };
-        const onSlideChange = () => {
-          console.log('slide change');
-        };
-        return {
-          onSwiper,
-          onSlideChange,
-          modules: [Navigation, Pagination, Scrollbar, A11y],
-        };
-      },
-    };
+<script setup>
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+let props = defineProps(['amoozeshItem'])
+const onSwiper = (swiper) => {
+  console.log(swiper);
+};
+
+const onSlideChange = () => {
+  console.log('slide change');
+};
+
+const modules = [Navigation, Pagination, Scrollbar, A11y];
 </script>
 
 <style>

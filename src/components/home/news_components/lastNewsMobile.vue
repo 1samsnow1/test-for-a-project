@@ -5,15 +5,15 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
-      <swiper-slide v-for="i in 2" key="i">
+      <swiper-slide v-for="item in test_items.item_list" :key="item">
         <article class="lastNews_mobile_article">
 
           <figure class="lastNews_image_figure">
-            <img src="@/assets/testy_images/lastNewsMobileImage.png" alt="lastNewsMobilePng">
+            <img :src="item.image_url" alt="lastNewsMobilePng">
           </figure>
 
           <h3 class="lastNews_mobile_title">
-            با هم برای آرمانِ امام ، نشست هم اندیشی پیرامون وحدت حوزه و دانشگاه
+            {{ item.title }}
           </h3>
 
           <p class="lastNews_mobile_text">
@@ -58,7 +58,7 @@
 
             </div>
 
-            <router-link to="/" class="latest_news_link">
+            <router-link :to="`/education/${item.id}`" class="latest_news_link">
                 <span>اطلاعات بیشتر</span>
                 <span class="latest_news_link_image">
                   <img src="@/assets/testy_images/newsLinkPointer.png" alt="linkImage">
@@ -69,33 +69,23 @@
       </swiper-slide>
     </swiper>
   </template>
-  <script>
-    // Import Swiper Vue.js components
-    import { Swiper, SwiperSlide } from 'swiper/vue';
-    import { RouterLink } from 'vue-router';
+<script setup>
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import { RouterLink } from 'vue-router';
   
-    // Import Swiper styles
-    import 'swiper/css';
+  // Import Swiper styles
+  import 'swiper/css';
   
-    export default {
-      components: {
-        Swiper,
-        SwiperSlide,
-      },
-      setup() {
-        const onSwiper = (swiper) => {
-          console.log(swiper);
-        };
-        const onSlideChange = () => {
-          console.log('slide change');
-        };
-        return {
-          onSwiper,
-          onSlideChange,
-        };
-      },
-    };
+  const onSwiper = (swiper) => {
+    console.log(swiper);
+  };
+  const onSlideChange = () => {
+    console.log('slide change');
+  };
+  let test_items = defineProps(['item_list']);
 </script>
+  
 
 <style scoped>
 .lastNews_mobile_article {

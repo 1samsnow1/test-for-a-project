@@ -1,9 +1,11 @@
 <template>
+
     <swiper
       :modules="modules"
       :slides-per-view="4"
       :space-between="50"
-      navigation
+      :navigation="false"
+      :pagination="true"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
       ref="mySwiper"
@@ -165,86 +167,69 @@
     </swiper>
 </template>
 
-<script>
-    import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-    import { ref, onMounted, onBeforeUnmount } from 'vue';
-    import { RouterLink } from 'vue-router';
-    import { Swiper, SwiperSlide } from 'swiper/vue';
-    import 'swiper/css';
-    import 'swiper/css/navigation';
-    import 'swiper/css/pagination';
-    import 'swiper/css/scrollbar';
-  
-    // Import Swiper styles
-    export default {
-      components: {
-        Swiper,
-        SwiperSlide,
-      },
-      setup() {
-    const slidesPerView = ref(3);
-    let swiperInstance;
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
-    const onSwiper = (swiper) => {
-      swiperInstance = swiper;
-    };
+const slidesPerView = ref(3);
+let swiperInstance;
 
-    const onSlideChange = () => {
-      console.log('slide change');
-    };
-
-    const handleResize = () => {
-      slidesPerView.value = calculateSlidesPerView();
-      onSwiperUpdate();
-    };
-
-    const calculateSlidesPerView = () => {
-      if (window.innerWidth < 650) {
-        return 1;
-      } else if (window.innerWidth < 950) {
-        return 3;
-      } else {
-        return 4;
-      }
-    };
-
-    const onSwiperUpdate = () => {
-      if (swiperInstance) {
-        swiperInstance.params.slidesPerView = slidesPerView.value;
-        swiperInstance.update();
-      }
-    };
-
-    const goPrev = () => {
-      if (swiperInstance) {
-        swiperInstance.slidePrev();
-      }
-    };
-
-    const goNext = () => {
-      if (swiperInstance) {
-        swiperInstance.slideNext();
-      }
-    };
-
-    onMounted(() => {
-      handleResize();
-      window.addEventListener('resize', handleResize);
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener('resize', handleResize);
-    });
-
-    return {
-      slidesPerView,
-      onSwiper,
-      onSlideChange,
-      goPrev,
-      goNext,
-    };
-  },
+const onSwiper = (swiper) => {
+  swiperInstance = swiper;
 };
+
+const onSlideChange = () => {
+  console.log('slide change');
+};
+
+const handleResize = () => {
+  slidesPerView.value = calculateSlidesPerView();
+  onSwiperUpdate();
+};
+
+const calculateSlidesPerView = () => {
+  if (window.innerWidth < 650) {
+    return 1;
+  } else if (window.innerWidth < 950) {
+    return 3;
+  } else {
+    return 4;
+  }
+};
+
+const onSwiperUpdate = () => {
+  if (swiperInstance) {
+    swiperInstance.params.slidesPerView = slidesPerView.value;
+    swiperInstance.update();
+  }
+};
+
+const goPrev = () => {
+  if (swiperInstance) {
+    swiperInstance.slidePrev();
+  }
+};
+
+const goNext = () => {
+  if (swiperInstance) {
+    swiperInstance.slideNext();
+  }
+};
+
+onMounted(() => {
+  handleResize();
+  window.addEventListener('resize', handleResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
 </script>
 
 <style>

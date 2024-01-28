@@ -22,7 +22,6 @@
     position: relative;
     background-color: #ffff;
     border-radius: 11px;
-    margin-bottom: 20px;
 }
 .searchBox_input {
     width: 100%;

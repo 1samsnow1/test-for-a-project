@@ -21,9 +21,7 @@
 
                 <div id="mySidenav" class="sidenav">
                     <span class="closebtn" @click="closeNav()">&times;</span>
-                    <router-link to="/">درباره ما</router-link>
-                    <router-link to="/contactUs">تماس با ما</router-link>
-                    <router-link to="/education">چند رسانه ای</router-link>
+                    <router-link v-if="headerList" v-for="item in headerList" :key="item" :to="item.link">{{ item.title }}</router-link>
                 </div>
 
                 <span style="font-size:30px;cursor:pointer" class="openbtn" @click="openNav()">&#9776;</span>
@@ -37,8 +35,18 @@
 </template>
 
 <script setup>
-
 import { RouterLink } from 'vue-router'
+import { useStore } from 'vuex'
+import { computed,onMounted } from 'vue';
+
+const store = useStore();
+let headerList = computed(()=>{
+  return store.getters.getHeaderList
+})
+console.log(headerList.value)
+onMounted(()=>{
+  store.dispatch("getHeaderListFromServer")
+})
 // side navbar functions
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
